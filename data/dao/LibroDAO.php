@@ -9,9 +9,9 @@ class LibroDAO {
     }
     
     public function listarLibros(){
-         $sql = "select top 100 idLibro,l.nombre 'libro',descripcion,fecPublicacion,foto,".
-                 "u.nomUsuario,nomPersona".
-                 "from libro l inner join usuario u on l.idUsuario=u.idUsuario";
+         $sql = "select idLibro,l.nombre 'libro',descripcion,fecPublicacion,foto,".
+                 "u.nomUsuario,nomPersona ".
+                 " from libro l inner join usuario u on l.idUsuario=u.idUsuario";
         
         $stmt = $this->dbh->prepare($sql);
         if ($stmt->execute()) {
@@ -23,12 +23,12 @@ class LibroDAO {
     
     public function librosAutor($id){
          $sql = "select idLibro,l.nombre 'libro',l.descripcion,l.fecPublicacion,l.foto,".
-                 "u.nomUsuario,nomPersona".
-                 "from libro l inner join usuario u on l.idUsuario=u.idUsuario".
-                 "where l.idUsuario=?";
+                 "u.nomUsuario,nomPersona " .
+                 " from libro l inner join usuario u on l.idUsuario=u.idUsuario ".
+                 " where l.idUsuario=?";
         
         $stmt = $this->dbh->prepare($sql);
-        
+
         $stmt->bindParam(1, $id, PDO::PARAM_INT);
         
         if ($stmt->execute()) {

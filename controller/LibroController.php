@@ -29,12 +29,12 @@ class LibroController {
     public function librosAutorAction($request){
         $response = new Response();
         
-        $id=$request->url_parameter; 
+        $id=$request->url_parameter[0]; 
 
         $result= $this->Data->librosAutor($id);
         
         if (is_array($result)) {
-            $response->setBody($result);
+            $response->setBody(['items'=>$result]);
             $response->setStatus(200);
         } else if (is_string($result)) {
             $response->setBody(['message' => $result]);
@@ -48,12 +48,12 @@ class LibroController {
         
         $response = new Response();
         
-        $id=$request->url_parameter; 
+        $id=$request->url_parameter[0]; 
 
         $result= $this->Data->obtenerLibro($id);
         
         if (is_array($result)) {
-            $response->setBody($result);
+            $response->setBody(['items'=>$result]);
             $response->setStatus(200);
         } else if (is_string($result)) {
             $response->setBody(['message' => $result]);
@@ -72,7 +72,7 @@ class LibroController {
         $result= $this->Data->registrarLibro($entidad);
         
         if (is_array($result)) {
-            $response->setBody($result);
+            $response->setBody(['items'=>$result]);
             $response->setStatus(200);
         } else if (is_string($result)) {
             $response->setBody(['message' => $result]);
@@ -91,7 +91,7 @@ class LibroController {
         $result= $this->Data->modificarLibro($entidad);
         
         if (is_array($result)) {
-            $response->setBody($result);
+            $response->setBody(['items'=>$result]);
             $response->setStatus(200);
         } else if (is_string($result)) {
             $response->setBody(['message' => $result]);

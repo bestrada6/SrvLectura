@@ -4,6 +4,6 @@
  * Mysql.
  */
 define('HOST', 'localhost');// Nombre del host
-define('DATABASE', 'entregas'); // Nombre de la base de controllers
+define('DATABASE', 'BDLECTURA'); // Nombre de la base de controllers
 define('MYSQL_USER', 'root'); // Nombre del usuario
 define('MYSQL_PASSWORD', ''); // Constraseña
